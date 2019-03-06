@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+    <head>
+        <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.Controller.AuthController.java" th:remove="all">
+        <meta type="aty-meta" name="cssLocation" content="css/home.css" th:remove="all">
+        <meta type="aty-meta" name="jsLocation" content="js/menu/return.js" th:remove="all">
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+        <link rel="stylesheet" aty:import>
+        <link rel="stylesheet" th:href="@{/css/home.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
+        <link rel="icon" th:href="@{/img/favicon.ico}">
+        <title>图书管理系统-首页</title>
+        <base th:href="@{/}" />
+    </head>
+    <body>
+        <div id="app" style="height:100%;width:100%">
+            <aty-region-layout height="100%">
+                <aty-region-north class="fd-top">
+                    <div id="topguide">
+                        <aty-breadcrumb :data="breadcrumbdata" can-click style="margin-right: 80px;font-size: medium"></aty-breadcrumb>
+                    </div>
+                    <div id="headphoto">
+                        <aty-image th:src="${curUser.getR_Img()}" alt="加载失败" style="margin-right: 20px;border-radius:50%"></aty-image>
+                    </div>
+                    <div id="yhname">
+                        <aty-text th:text="${curUser.getR_Name()}" style="margin-right: 50px;font-size: medium"></aty-text>
+                    </div>
+                </aty-region-north>
+                <aty-region-west class="fd-left">
+                    <aty-menu active-code="2.2" @select="select">
+                        <aty-menu-item code="1" text="图书查询" icon="../img/book1.png" style="font-size: medium;margin-top: 20px"></aty-menu-item>
+
+                        <aty-submenu code="2" text="图书借阅" icon="../img/book2.png" style="font-size: medium;margin-top: 20px">
+                            <aty-menu-item code="2.1" text="借阅信息" ></aty-menu-item>
+                            <aty-menu-item code="2.2" text="归还信息" ></aty-menu-item>
+                        </aty-submenu>
+
+                        <aty-menu-item code="3" text="用户管理" icon="../img/people.png" style="font-size: medium;margin-top: 20px"></aty-menu-item>
+                        <aty-submenu code="4" text="信息维护" icon="../img/Book.png" style="font-size: medium;margin-top: 20px">
+                            <aty-menu-item code="4.1" text="图书维护" ></aty-menu-item>
+                            <aty-menu-item code="4.2" text="读者维护" ></aty-menu-item>
+                        </aty-submenu>
+                    </aty-menu>
+                </aty-region-west>
+                <aty-region-center class="fd-center">
+                    <div id='returnbook'>
+                        <aty-row class="fd-row" type="flex" justify="end" style="margin-top: 20px;margin-bottom: 20px">
+                            <aty-col span="2">
+                                <aty-button type="primary" shape="circle" @click="freshen" icon="android-refresh">
+                                    刷新
+                                </aty-button>
+                            </aty-col>
+                        </aty-row>
+
+                        <aty-row>
+                            <aty-divider></aty-divider>
+                        </aty-row>
+
+                        <!--归还记录查询-->
+                        <aty-table :pageable-data="rs1"  stripe show-tota="true" @load-data="loadData" :limit="7" is-split-page>
+                            <aty-table-column prop="b_id" label="图书编号" filter-type="number" width="200"></aty-table-column>
+                            <aty-table-column prop="b_name" label="图书名称" filter-type="string" width="200"></aty-table-column>
+                            <aty-table-column  prop="r_id" label="读者编号" filter-type="number" width="200"></aty-table-column>
+                            <aty-table-column prop="r_name" label="读者姓名" filter-type="string" width="250"></aty-table-column>
+                            <aty-table-column prop="b_date" label="借出日期"  :formatter="df('YYYY年MM月DD日')" width="200"></aty-table-column>
+                            <aty-table-column prop="r_date" label="归还日期"  :formatter="df('YYYY年MM月DD日')" width="200"></aty-table-column>
+                        </aty-table>
+                    </div>
+                </aty-region-center>
+                <aty-region-south class="fd-bottom"></aty-region-south>
+            </aty-region-layout>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p style="text-align: center" class="text-muted">&#12288 &#12288 &#12288 &#12288 &#12288 Copyright &copy; 2019 TUSHU<a href="http://open.thunisoft.com/book/booksman">&#12288 &#12288 &#12288 fork me on the GitLab</a></p>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+    <script type="text/javascript" aty:import></script>
+    <script type="text/javascript" th:src="@{/js/menu/return.js}"></script>
+
+</html>

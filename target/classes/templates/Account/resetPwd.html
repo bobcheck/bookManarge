@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+<head>
+    <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.Controller.AuthController.java" th:remove="all">
+    <meta type="aty-meta" name="cssLocation" content="css/index.css" th:remove="all">
+    <meta type="aty-meta" name="jsLocation" content="js/index.js" th:remove="all">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+    <link rel="stylesheet" aty:import>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="icon" th:href="@{/img/favicon.ico}">
+    <title>图书管理系统-修改密码</title>
+    <base th:href="@{/}" />
+</head>
+<body>
+<div id='app' style="height:100%;width:100%">
+    <aty-region-layout height="100%">
+        <aty-region-north class="fd-top">
+            <div id="topguide">
+                <aty-breadcrumb :data="breadcrumbdata" can-click style="margin-right: 80px;font-size: medium"></aty-breadcrumb>
+            </div>
+            <div id="headphoto">
+                <aty-image th:src="${curUser.getR_Img()}" alt="加载失败" style="margin-right: 20px;border-radius:50%"></aty-image>
+            </div>
+            <div id="yhname">
+                <aty-text th:text="${curUser.getR_Name()}" style="margin-right: 50px;font-size: medium"></aty-text>
+            </div>
+        </aty-region-north>
+        <aty-region-west class="fd-left">
+            <aty-menu mode="horizontal" :theme="theme" active-code="2" @select="select">
+                <aty-menu-item code="1" text="修改个人信息"></aty-menu-item>
+                <aty-menu-item code="2" text="修改密码"></aty-menu-item>
+            </aty-menu>
+        </aty-region-west>
+        <aty-region-center class="fd-center">
+            <aty-form label-position="left" :label-width="100" :data="userdto" ref="form">
+                <aty-input :rules="rules.oldPassword" v-model="userdto.oldPassword" label="旧密码" type="password" placeholder="请输入您的原密码"></aty-input>
+                <aty-input :rules="rules.newPassword" v-model="userdto.newPassword" label="新密码" type="password" placeholder="请输入您的新密码"></aty-input>
+                <aty-input :rules="rules.newPassword2" v-model="userdto.newPassword2" label="确认新密码" type="password" placeholder="请再一次输入新的密码"></aty-input>
+                <aty-form-item prop>
+                    <aty-button type="primary" @click="submit('form')" text="修改密码"></aty-button>
+                </aty-form-item>
+            </aty-form>
+        </aty-region-center>
+        <aty-region-east class="fd-right"></aty-region-east>
+        <aty-region-south class="fd-bottom"></aty-region-south>
+    </aty-region-layout>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p style="text-align: center" class="text-muted">Copyright &copy; 2019 TUSHU<a href="http://open.thunisoft.com/book/booksman">&#12288 &#12288 &#12288 fork me on the GitLab</a></p>
+    </div>
+</footer>
+</body>
+<script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+<script type="text/javascript" aty:import></script>
+<script type="text/javascript" th:src="@{/js/account/update.js}"></script>
+</html>

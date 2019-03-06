@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+<head>
+    <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.Controller.AuthController.java" th:remove="all">
+    <meta type="aty-meta" name="cssLocation" content="css/index.css" th:remove="all">
+    <meta type="aty-meta" name="jsLocation" content="js/index.js" th:remove="all">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+    <link rel="stylesheet" aty:import>
+    <link rel="icon" th:href="@{/img/favicon.ico}">
+    <title>表格测试</title>
+    <base th:href="@{/}" />
+</head>
+<body>
+<div id='app'>
+    <aty-table is-split-page @load-data="loadData" :limit="3" height="200" border :pageable-data="rs1">
+        <aty-table-column prop="username" label="用户名" sortable="custom"></aty-table-column>
+        <aty-table-column prop="password" label="password" sortable="custom"></aty-table-column>
+    </aty-table>
+</div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/table.js}"></script>
+<script type="text/javascript" aty:import></script>
+</html>

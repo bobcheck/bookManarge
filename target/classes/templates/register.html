@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+<head>
+    <meta type="aty-meta" name="javaLocation" content="com.thunisoft.demo.Controller.AuthController.java" th:remove="all">
+    <meta type="aty-meta" name="cssLocation" content="css/index.css" th:remove="all">
+    <meta type="aty-meta" name="jsLocation" content="js/index.js" th:remove="all">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}" />
+    <link rel="stylesheet" aty:import>
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="icon" th:href="@{/img/favicon.ico}">
+    <title>图书管理系统-注册</title>
+    <base th:href="@{/}" />
+</head>
+<body>
+<div id="app" style="height:100%;width:100%">
+    <aty-region-layout height="100%">
+        <aty-region-north class="fd-top"></aty-region-north>
+        <aty-region-west class="fd-left"></aty-region-west>
+        <aty-region-center class="fd-center">
+            <div id="registerForm">
+                <aty-title  style="text-indent:2em" text="图书管理系统"  level="1"></aty-title>
+                <aty-form  label-position="left" :label-width="80" ref="form" :data="user">
+                    <aty-input label="用户名" :rules="registerRule.R_Name" v-model="user.R_Name" icon="ios-person-outline" placeholder="不能为空" size="large"></aty-input>
+                    <aty-input label="密码" :rules="registerRule.R_Pwd" v-model="user.R_Pwd" icon="ios-locked-outline" placeholder="8位数字与字母的组合" size="large" type="password"></aty-input>
+                    <aty-form-item prop>
+                    <aty-button type="primary" text="注册" @click="handleSubmit('form')" long></aty-button>
+                    </aty-form-item>
+                </aty-form>
+            </div>
+        </aty-region-center>
+        <aty-region-east class="fd-right"></aty-region-east>
+        <aty-region-south class="fd-bottom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/index">已有账号？前去登录</a></aty-region-south>
+    </aty-region-layout>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p style="text-align: center;" class="text-muted">Copyright &copy; 2019 TUSHU<a href="http://open.thunisoft.com/book/booksman">fork me on the open.thunisoft</a></p>
+    </div>
+</footer>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+<script type="text/javascript" aty:import></script>
+<script type="text/javascript" th:src="@{/js/register.js}"></script>
+</html>

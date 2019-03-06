@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thunisoft.booksdemo.mapper.SysUserMapper">
+    <select id="selectUser" resultType="com.thunisoft.booksdemo.pojo.User">
+        SELECT * FROM user WHERE R_Name=#{R_Name} and R_Pwd=#{R_Pwd}
+    </select>
+
+    <select id="getUserById" resultType="com.thunisoft.booksdemo.pojo.User">
+        SELECT * FROM user WHERE R_id=#{id}
+    </select>
+
+    <select id="getUserByName" resultType="com.thunisoft.booksdemo.pojo.User">
+        SELECT * from user where R_Name=#{name}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO user(R_Name, R_Pwd) VALUES (#{R_Name}, #{R_Pwd})
+    </insert>
+
+    <update id="updateUser">
+        UPDATE user SET R_Pwd=#{R_Pwd} WHERE R_Name=#{R_Name}
+    </update>
+</mapper>

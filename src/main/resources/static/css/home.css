@@ -1,0 +1,55 @@
+
+
+.fd-top {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    align-items: center;
+    height:200px;
+
+}
+.fd-bottom {
+    display: flex;
+    line-height: 40px;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+
+}
+.fd-left  {
+
+    width: 240px;
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+
+}
+/*#headphoto{*/
+     /*display: flex;*/
+     /*justify-content: flex-end;*/
+     /*align-items: flex-end;*/
+ /*}*/
+/*#topguide{*/
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+    /*align-items: flex-end;*/
+/*}*/
+
+.fd-right{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.fd-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    /*font-size:180px;*/
+    /*font-weight:bold;*/
+    /*font-family: Georgia;*/
+}
+

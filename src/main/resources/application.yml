@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 #日期序列化走北京时间
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.94.211.34:3306/db_aty?useSSL=false
+    username: lgy
+    password: test-lgy-734190L
+
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /demo
+#    session:
+#      cookie:
+#        http-only: true
+#        secure: true
+#      timeout: 30m
+#  tomcat: # 以下配置均为tomcat9.x的默认值
+#    max-threads: 200
+#    min-spare-threads: 10
+#    max-connections: 10000
+#    accept-count: 100
+mybatis:
+  # 指定全局配置文件
+  config-location: classpath:mybatis/mybatis-config.xml
+  #指定sql映射文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
